@@ -1,23 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
-
+import { useState } from "react";
+import SearchBox from "./components/search-box/search-box.component";
+import Container from "./components/Container/container.component";
+import "./App.css";
+const users = require("./users.json");
 function App() {
+  const [searchString, setSearchString] = useState("");
+  const onChangeFunction = () => {
+    const searchStringValue = document
+      .getElementsByTagName("input")[0]
+      .value.toLowerCase();
+    setSearchString(searchStringValue);
+    console.log(searchString);
+  };
+
+  const filteredUsers = users.filter((user) => {
+    return (
+      user.name.toLowerCase().includes(searchString) ||
+      user.email.toLowerCase().includes(searchString)
+    );
+  });
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <SearchBox
+        placeholder="Search Names"
+        onChangeHandler={() => onChangeFunction()}
+      />
+      <Container users={filteredUsers} />
     </div>
   );
 }

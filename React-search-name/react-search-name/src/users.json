@@ -1,0 +1,42 @@
+[
+  {
+    "id": "1",
+    "name": "Ansh Rusia",
+    "email": "rusia@ansh.com"
+  },
+  {
+    "id": "2",
+    "name": "Varun Tiwari",
+    "email": "varun@tiwari.com"
+  },
+  {
+    "id": "3",
+    "name": "samarth garg",
+    "email": "samarth@garg.com"
+  },
+  {
+    "id": "4",
+    "name": "Shubhajeet Pradhan",
+    "email": "shubha@pradh.com"
+  },
+  {
+    "id": "5",
+    "name": "Shikhar Gupta",
+    "email": "shikhar@gupta.com"
+  },
+  {
+    "id": "6",
+    "name": "ketan prakash",
+    "email": "ketan@prakash.com"
+  },
+  {
+    "id": "7",
+    "name": "Chirag Kumar",
+    "email": "chirag@kumar.com"
+  },
+  {
+    "id": "8",
+    "name": "Arun Kushwaha",
+    "email": "arun@kush.com"
+  }
+]
