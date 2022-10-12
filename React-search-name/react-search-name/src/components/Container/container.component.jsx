@@ -1,10 +1,10 @@
 import "./container.component.css";
-import User from "../User/user.component";
-const Container = ({ users }) => {
+import Dish from "../dish/dish.component";
+const Container = ({ dishes }) => {
   return (
     <div className="container">
-      {users.map((user) => {
-        return <User user={user} key={user.id} />;
+      {dishes.map((dish) => {
+        return <Dish dish={dish} key={dish.name} />;
       })}
     </div>
   );

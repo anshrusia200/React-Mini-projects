@@ -1,32 +1,35 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import SearchBox from "./components/search-box/search-box.component";
 import Container from "./components/Container/container.component";
 import "./App.css";
-const users = require("./users.json");
-function App() {
-  const [searchString, setSearchString] = useState("");
-  const onChangeFunction = () => {
-    const searchStringValue = document
-      .getElementsByTagName("input")[0]
-      .value.toLowerCase();
-    setSearchString(searchStringValue);
-    console.log(searchString);
-  };
+const foods = require("./food.json");
 
-  const filteredUsers = users.filter((user) => {
-    return (
-      user.name.toLowerCase().includes(searchString) ||
-      user.email.toLowerCase().includes(searchString)
-    );
-  });
+function App() {
+  const [dishArray, setUserArray] = useState(() => foods);
+  const [searchString, setSearchString] = useState(() => "");
+  const onChangeFunction = (e) => {
+    const val = e.currentTarget.value.toLowerCase();
+    setSearchString(val);
+  };
+  useEffect(() => {
+    const filteredUsers = foods.filter((food) => {
+      return (
+        food.name.toLowerCase().includes(searchString) ||
+        food.ingredients.toLowerCase().includes(searchString)
+      );
+    });
+
+    setUserArray(filteredUsers);
+  }, [searchString]);
 
   return (
     <div className="App">
       <SearchBox
+        value={searchString}
+        onChangeHandler={onChangeFunction}
         placeholder="Search Names"
-        onChangeHandler={() => onChangeFunction()}
       />
-      <Container users={filteredUsers} />
+      <Container dishes={dishArray} />
     </div>
   );
 }

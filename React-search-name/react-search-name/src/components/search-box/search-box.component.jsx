@@ -1,10 +1,11 @@
 import "./search-box.component.css";
 
-const SearchBox = ({ onChangeHandler, placeholder }) => {
+const SearchBox = ({ value, onChangeHandler, placeholder }) => {
   return (
     <div className="search-box">
       <input
         type="search"
+        value={value}
         placeholder={placeholder}
         onChange={onChangeHandler}
       />
