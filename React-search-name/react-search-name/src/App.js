@@ -10,10 +10,21 @@ function App() {
   const [filteredDishes, setFilteredDishes] = useState(dishArray);
   const [dishFiltersObj, setDishFiltersObj] = useState({
     diet: "all",
-    flavor: "all",
     region: "all",
     course: "all",
+    flavor: "all",
   });
+  const onFilterChangeFunction = (e) => {
+    const filter_name = e.target.name;
+    const filter_value = e.target.value;
+    const copyFilterObj = {
+      ...dishFiltersObj,
+    };
+    copyFilterObj[filter_name] = filter_value;
+    setDishFiltersObj(() => copyFilterObj);
+    console.log(dishFiltersObj);
+  };
+
   useEffect(() => {
     // this callback is the effect that we want
     fetch(
@@ -27,17 +38,6 @@ function App() {
     const val = e.currentTarget.value.toLowerCase();
     console.log(val);
     setSearchString(val);
-  };
-
-  const onFilterChangeFunction = (e) => {
-    const filter_name = e.target.name;
-    const filter_value = e.target.value;
-    const copyFilterObj = {
-      ...dishFiltersObj,
-    };
-    copyFilterObj[filter_name] = filter_value;
-    setDishFiltersObj(() => copyFilterObj);
-    console.log(dishFiltersObj);
   };
 
   useEffect(() => {

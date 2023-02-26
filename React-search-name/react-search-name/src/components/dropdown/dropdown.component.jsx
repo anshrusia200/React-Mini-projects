@@ -1,10 +1,10 @@
 // import { Component } from "react";
 import "./dropdown.styles.css";
 
-const Dropdown = ({ name, values, onChangeHandler }) => {
+const Dropdown = ({ tag, name, values, onChangeHandler }) => {
   return (
     <div>
-      <h2>{name}</h2>
+      <h2>{tag}</h2>
       <select
         name={name}
         id={name}

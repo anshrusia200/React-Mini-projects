@@ -1,0 +1,7 @@
+.drop-container {
+  display: flex;
+  justify-content: space-between;
+  width: 70%;
+  margin-bottom: 2rem;
+  margin-left: 5rem;
+}
